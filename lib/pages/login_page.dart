@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/components/my_button.dart';
 import 'package:myapp/components/my_textfield.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  LoginPage({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -39,15 +45,25 @@ class LoginPage extends StatelessWidget {
               // email textfield
               MyTextField(
                 hintText: "Email",
+                obscureText: false,
+                controller: _emailController,
               ),
               const SizedBox(
-                height:20,
+                height: 20,
               ),
               MyTextField(
                 hintText: "Password",
+                obscureText: true,
+                controller: _passwordController,
+              ),
+
+              const SizedBox(
+                height: 20,
               ),
               // login button
-
+              MyButton(
+                text: "Login",
+              ),
               // register now
             ],
           ),
